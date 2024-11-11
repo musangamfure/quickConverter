@@ -1,4 +1,4 @@
-import DropzoneHeic from "@/components/dropzoneheic";
+import ClientDropzoneHeic from "@/components/dropzoneheic";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       </div>
 
       {/* Upload Box */}
-      <DropzoneHeic />
+      <ClientDropzoneHeic />
     </div>
   );
 }
