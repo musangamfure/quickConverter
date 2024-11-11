@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import { FiUploadCloud } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {

@@ -1,5 +1,3 @@
-// imports
-import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
@@ -8,7 +6,6 @@ import {
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ModeToggle } from "./mode-toggle";
