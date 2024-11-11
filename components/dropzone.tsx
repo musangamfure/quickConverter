@@ -102,22 +102,19 @@ export default function Dropzone() {
   };
 
   useEffect(() => {
-    setIsClient(true); // Now we can safely access client-only code
-  }, []);
-
-  if (!isClient) return null;
-
-  useEffect(() => {
-    const loadFFmpeg = async () => {
-      if (typeof window !== "undefined") {
-        // Ensure client-side execution
-        const ffmpeg = await loadFfmpeg();
-        ffmpegRef.current = ffmpeg;
-        setIsLoaded(true);
-      }
+    const load = async () => {
+      ffmpegRef.current = await loadFfmpeg();
+      setIsLoaded(true);
     };
-    loadFFmpeg();
+    load();
   }, []);
+
+  // Check if all actions are ready
+  useEffect(() => {
+    setIsReady(actions.every((action) => action.to));
+  }, [actions]);
+
+  // Reset the component state
 
   // functions
   const reset = () => {
@@ -261,17 +258,7 @@ export default function Dropzone() {
     setActions(actions.filter((elt) => elt !== action));
     setFiles(files.filter((elt) => elt.name !== action.file_name));
   };
-  useEffect(() => {
-    if (!actions.length) {
-      setIsDone(false);
-      setFiles([]);
-      setIsReady(false);
-      setIsConverting(false);
-    } else checkIsReady();
-  }, [actions]);
-  useEffect(() => {
-    load();
-  }, []);
+
   const load = async () => {
     const ffmpeg_response: FFmpeg = await loadFfmpeg();
     ffmpegRef.current = ffmpeg_response;
@@ -491,7 +478,7 @@ export default function Dropzone() {
       {({ getRootProps, getInputProps }) => (
         <div
           {...getRootProps()}
-          className="bg-gray-100 h-28 lg:h-44 xl:h-52 mx-auto max-w-4xl rounded-3xl shadow-sm border-secondary border-2 border-dashed border-gray-200 cursor-pointer flex items-center justify-center"
+          className="bg-gray-100 h-28 lg:h-44 xl:h-52 mx-auto max-w-4xl rounded-3xl shadow-sm border-secondary border-2 border-dashed border-gray-200 cursor-pointer flex items-center justify-center  dark:bg-gray-800 dark:border-secondary-dark"
         >
           <input {...getInputProps()} />
           <div className="space-y-4 text-foreground">

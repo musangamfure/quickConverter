@@ -34,6 +34,14 @@ export default function DropzoneHeic() {
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    if (!actions.length) {
+      setIsDone(false);
+      setFiles([]);
+      setIsConverting(false);
+    }
+  }, [actions]);
+
   if (!isClient) return null;
 
   const reset = () => {
@@ -155,14 +163,6 @@ export default function DropzoneHeic() {
     setActions(actions.filter((elt) => elt !== action));
     setFiles(files.filter((elt) => elt.name !== action.file_name));
   };
-
-  useEffect(() => {
-    if (!actions.length) {
-      setIsDone(false);
-      setFiles([]);
-      setIsConverting(false);
-    }
-  }, [actions]);
 
   if (actions.length) {
     return (
@@ -299,7 +299,7 @@ export default function DropzoneHeic() {
       {({ getRootProps, getInputProps }) => (
         <div
           {...getRootProps()}
-          className="bg-gray-100 h-28 lg:h-44 xl:h-52 mx-auto max-w-4xl rounded-3xl shadow-sm border-secondary border-2  border-dashed border-gray-200 cursor-pointer flex items-center justify-center"
+          className="bg-gray-100 h-28 lg:h-44 xl:h-52 mx-auto max-w-4xl rounded-3xl shadow-sm border-secondary border-2  border-dashed border-gray-200 cursor-pointer flex items-center justify-center dark:bg-gray-800 dark:border-secondary-dark"
         >
           <input {...getInputProps()} />
           <div className="space-y-4 text-foreground">

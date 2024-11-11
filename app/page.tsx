@@ -13,7 +13,7 @@ export default function HomePage() {
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Free Unlimited File Converter
         </h1>
-        <p className="text-lg text-gray-600 mt-4">
+        <p className="text-lg text-gray-600 mt-4 dark:text-white/80">
           Convert your images, audio, and video files quickly and efficiently.
           Now with a dedicated HEIC to JPEG tool.
         </p>
@@ -21,11 +21,11 @@ export default function HomePage() {
 
       <main className="space-y-12">
         {/* General Conversion Tool */}
-        <section className="bg-gray-100 shadow-lg p-8 rounded-lg max-w-3xl mx-auto">
+        <section className="bg-gray-100 shadow-lg p-8 rounded-lg max-w-3xl mx-auto  dark:bg-gray-800 dark:border-secondary-dark">
           <h2 className="text-2xl font-semibold text-gray-800">
             Universal File Converter
           </h2>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-600 mt-2 dark:text-white/80">
             Convert between various file types: images, audio, video, and more.
             Supports formats like MP3, MP4, JPEG, PNG, and more.
           </p>
@@ -40,11 +40,11 @@ export default function HomePage() {
         </section>
 
         {/* Dedicated HEIC to JPEG Tool */}
-        <section className="bg-gray-100 shadow-lg p-8 rounded-lg max-w-3xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800">
+        <section className="bg-gray-100 shadow-lg p-8 rounded-lg max-w-3xl mx-auto  dark:bg-gray-800 dark:border-secondary-dark ">
+          <h2 className="text-2xl font-semibold text-gray-800 ">
             Convert HEIC to JPEG
           </h2>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-600 mt-2 dark:text-white/80">
             Use our dedicated tool to seamlessly convert HEIC images to JPEG
             format, perfect for sharing and viewing on any device.
           </p>
