@@ -1,7 +1,6 @@
 "use client";
 
 import ClientDropzone from "@/components/ClientDropzone";
-import Dropzone from "@/components/dropzone";
 
 export default function Universal() {
   return (
