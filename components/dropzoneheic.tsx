@@ -19,7 +19,6 @@ import heic2any from "heic2any";
 import { Button } from "./ui/button";
 import type { Action } from "@/types";
 import fileToIcon from "@/utils/file-to-icon";
-import loadFfmpeg from "@/utils/load-ffmpeg";
 
 export default function DropzoneHeic() {
   const { toast } = useToast();
