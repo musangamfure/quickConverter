@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/badge";
 import { HiOutlineDownload } from "react-icons/hi";
 import { BiError } from "react-icons/bi";
 import heic2any from "heic2any";
+import dynamic from "next/dynamic";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
