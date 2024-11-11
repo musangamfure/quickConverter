@@ -100,6 +100,18 @@ export default function Dropzone() {
     "video/*": [],
   };
 
+  useEffect(() => {
+    const loadFFmpeg = async () => {
+      if (typeof window !== "undefined") {
+        // Ensure client-side execution
+        const ffmpeg = await loadFfmpeg();
+        ffmpegRef.current = ffmpeg;
+        setIsLoaded(true);
+      }
+    };
+    loadFFmpeg();
+  }, []);
+
   // functions
   const reset = () => {
     setIsDone(false);
@@ -126,46 +138,6 @@ export default function Dropzone() {
     URL.revokeObjectURL(action.url);
     document.body.removeChild(a);
   };
-
-  // const convert = async (): Promise<any> => {
-  //   let tmp_actions = actions.map((elt) => ({
-  //     ...elt,
-  //     is_converting: true,
-  //   }));
-  //   setActions(tmp_actions);
-  //   setIsConverting(true);
-  //   for (let action of tmp_actions) {
-  //     try {
-  //       const { url, output } = await convertFile(ffmpegRef.current, action);
-  //       tmp_actions = tmp_actions.map((elt) =>
-  //         elt === action
-  //           ? {
-  //               ...elt,
-  //               is_converted: true,
-  //               is_converting: false,
-  //               url,
-  //               output,
-  //             }
-  //           : elt
-  //       );
-  //       setActions(tmp_actions);
-  //     } catch (err) {
-  //       tmp_actions = tmp_actions.map((elt) =>
-  //         elt === action
-  //           ? {
-  //               ...elt,
-  //               is_converted: false,
-  //               is_converting: false,
-  //               is_error: true,
-  //             }
-  //           : elt
-  //       );
-  //       setActions(tmp_actions);
-  //     }
-  //   }
-  //   setIsDone(true);
-  //   setIsConverting(false);
-  // };
 
   const convert = async (): Promise<any> => {
     let tmp_actions = actions.map((elt) => ({
