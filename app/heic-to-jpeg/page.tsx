@@ -2,7 +2,7 @@
 
 import ClientDropzoneHeic from "@/components/dropzoneheic";
 
-export default function Home() {
+export default function HeicToJpeg() {
   return (
     <div className="space-y-16 pb-8">
       {/* Title + Desc */}

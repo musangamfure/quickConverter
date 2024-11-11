@@ -2,7 +2,7 @@
 
 import Dropzone from "@/components/dropzone";
 
-export default function Home() {
+export default function Universal() {
   return (
     <div className="space-y-16 pb-8">
       <div className="space-y-2">

@@ -28,6 +28,13 @@ export default function DropzoneHeic() {
   const [files, setFiles] = useState<Array<any>>([]);
   const [is_converting, setIsConverting] = useState<boolean>(false);
   const [is_done, setIsDone] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
 
   const reset = () => {
     setIsDone(false);

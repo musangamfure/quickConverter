@@ -81,6 +81,7 @@ export default function Dropzone() {
   const [is_done, setIsDone] = useState<boolean>(false);
   const ffmpegRef = useRef<any>(null);
   const [defaultValues, setDefaultValues] = useState<string>("video");
+  const [isClient, setIsClient] = useState(false);
   const [selcted, setSelected] = useState<string>("...");
   const accepted_files = {
     "image/*": [
@@ -99,6 +100,12 @@ export default function Dropzone() {
     "audio/*": [],
     "video/*": [],
   };
+
+  useEffect(() => {
+    setIsClient(true); // Now we can safely access client-only code
+  }, []);
+
+  if (!isClient) return null;
 
   useEffect(() => {
     const loadFFmpeg = async () => {
