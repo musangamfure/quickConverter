@@ -1,3 +1,5 @@
+"use client";
+
 import ClientDropzoneHeic from "@/components/dropzoneheic";
 
 export default function Home() {
