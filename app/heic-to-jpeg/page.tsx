@@ -1,6 +1,6 @@
 "use client";
 
-import ClientDropzoneHeic from "@/components/dropzoneheic";
+import ClientDropzoneHeic from "@/components/ClientDropzoneHeic";
 
 export default function HeicToJpeg() {
   return (
